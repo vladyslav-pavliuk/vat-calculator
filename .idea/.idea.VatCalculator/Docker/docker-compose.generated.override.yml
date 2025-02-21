@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  vatcalculator:
+    build:
+      context: "/Users/vlad/Projects/vat-calculator"
+      dockerfile: "VatCalculator/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/VatCalculator.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "vatcalculator:dev"
+    ports: []
+    volumes:
+    - "/Users/vlad/Projects/vat-calculator/VatCalculator:/app:rw"
+    - "/Users/vlad/Projects/vat-calculator:/src:rw"
+    - "/Users/vlad/.nuget/packages:/root/.nuget/packages"
+    working_dir: "/app"

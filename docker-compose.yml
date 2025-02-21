@@ -1,0 +1,10 @@
+﻿services:
+  vatcalculator:
+    image: vatcalculator
+    build:
+      context: .
+      dockerfile: VatCalculator/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080

@@ -1,0 +1,54 @@
+@VatCalculator_HostAddress = http://localhost:5191
+
+### Calculate VAT (Valid Request - Net Amount Provided)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "netAmount": 100,
+  "vatRate": 20
+}
+
+### Calculate VAT (Valid Request - Gross Amount Provided)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "grossAmount": 120,
+  "vatRate": 20
+}
+
+### Calculate VAT (Valid Request - VAT Amount Provided)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "vatAmount": 20,
+  "vatRate": 20
+}
+
+### Calculate VAT (Invalid Request - Missing Input)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "vatRate": 20
+}
+
+### Calculate VAT (Invalid Request - Invalid VAT Rate)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "netAmount": 100,
+  "vatRate": 15
+}
+
+### Calculate VAT (Invalid Request - Non-Positive Amount)
+POST {{VatCalculator_HostAddress}}/vat
+Content-Type: application/json
+
+{
+  "netAmount": 0,
+  "vatRate": 20
+}
